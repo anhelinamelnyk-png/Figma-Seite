@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HealthSpecialist — медична клініка</title>
+  <meta name="description" content="Сучасна медична клініка: швидка допомога, онлайн-запис, найкращі лікарі.">
+  <!-- Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="frame">
+
+    <!-- ===== HEADER ===== -->
+    <!-- role="banner" не потрібен для <header> -->
+    <header class="header">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a class="logo" href="#home" aria-label="HealthSpecialist — на головну">
+          <span class="logo-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="logo-text">Health<em>Specialist</em></span>
+        </a>
+
+        <!-- Nav -->
+        <nav class="nav" aria-label="Основне меню">
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT</a>
+          <a href="services.html">SERVICES</a>
+
+          <!-- DOCTORS з дропдауном -->
+          <div class="has-dropdown">
+            <a href="#doctors" aria-haspopup="true" aria-expanded="false">DOCTORS</a>
+            <ul class="dropdown" role="menu" aria-label="Doctors list" hidden>
+              <li><a href="#doctor-1" role="menuitem">Phillis K Vance MD</a></li>
+              <li><a href="#doctor-2" role="menuitem">Stanley K Hudson MD</a></li>
+              <li><a href="#doctor-3" role="menuitem">Kevin D Malone MD</a></li>
+              <li><a href="#doctor-4" role="menuitem">Angela S Martin MD</a></li>
+            </ul>
+          </div>
+
+          <a href="#contact">CONTACT</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="auth">
+          <a class="login" href="#login">LOG IN</a>
+          <button class="btn btn-light" type="button">SIGN UP</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+<section class="hero" id="home" aria-label="Header hero">
+  <div class="hero-content">
+    <h1>Dedicated Health<br>Care Specialists</h1>
+
+    <p class="short-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua.
+    </p>
+
+    <p class="hidden-text">
+      Vestibulum viverra aliquet turpis, non vehicula purus condimentum eu. Curabitur nec risus at justo congue tincidunt.
+      Quisque posuere arcu a nibh interdum, nec convallis magna feugiat. Donec dignissim lorem nec feugiat dictum.
+    </p>
+
+    <button class="btn btn-white learn-more-btn" type="button">LEARN MORE</button>
+  </div>
+
+  <div class="hero-art" aria-hidden="true">
+    <img src="ambulance.png" alt="Ambulance illustration">
+  </div>
+</section>
+
+    <!-- ===== 3 ТЕКСТОВІ БОКСИ ===== -->
+    <section class="info-cards" aria-labelledby="info-cards-heading">
+      <h2 id="info-cards-heading" class="visually-hidden">Key information</h2>
+
+      <!-- 1 -->
+      <article class="info-card">
+        <h3>EMERGENCIES</h3>
+        <p>
+          In case of any medical emergency, our team is available to provide immediate and professional care.
+          Our doctors are trained to handle a wide range of urgent conditions efficiently.
+        </p>
+        <button class="btn btn-primary" type="button">MORE INFO</button>
+      </article>
+
+      <!-- 2 -->
+      <article class="info-card info-card--hours">
+        <h3>OPERATING HOURS</h3>
+
+        <div class="hours">
+          <div class="hours-row">
+            <span>MONDAY – FRIDAY</span>
+            <span>08:00 - 18:00</span>
+          </div>
+          <div class="hours-line"></div>
+
+          <div class="hours-row">
+            <span>SATURDAY</span>
+            <span>10:00 - 16:00</span>
+          </div>
+          <div class="hours-row">
+            <span>SUNDAY</span>
+            <span>10:00 - 14:00</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="button">MAKE AN APPOINTMENT</button>
+      </article>
+
+      <!-- 3 -->
+      <article class="info-card">
+        <h3>TEST RESULTS</h3>
+        <p>
+          Access your laboratory and diagnostic test results quickly and securely through our online portal.
+          We guarantee accuracy and confidentiality in every step of the process.
+        </p>
+        <button class="btn btn-primary" type="button">CHECK TEST</button>
+      </article>
+    </section>
+
+
+    <!-- ===== DOCTORS (горизонтальний скрол) ===== -->
+    <section class="doctors" id="doctors" aria-labelledby="doctors-heading">
+      <h2 id="doctors-heading">Doctors</h2>
+
+      <!-- aria-label замінено на aria-labelledby, додаємо роль регіону для кращої доступності -->
+      <div class="doctors-scroller" role="region" tabindex="0" aria-labelledby="doctors-heading">
+        <article class="doctor-card" id="doctor-1">
+          <div class="doctor-card__bg"></div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__avatar">
+              <img src="doctor1.png" alt="Phillis K Vance, MD">
+            </div>
+            <div class="doctor-card__text">
+              <h3>Phillis K Vance MD</h3>
+              <div class="badge">Family Medicine</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="doctor-card" id="doctor-2">
+          <div class="doctor-card__bg"></div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__avatar">
+              <img src="doctor2.png" alt="Stanley K Hudson, MD">
+            </div>
+            <div class="doctor-card__text">
+              <h3>Stanley K Hudson MD</h3>
+              <div class="badge">Internal Medicine</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="doctor-card" id="doctor-3">
+          <div class="doctor-card__bg"></div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__avatar">
+              <img src="doctor3.png" alt="Kevin D. Malone, MD">
+            </div>
+            <div class="doctor-card__text">
+              <h3>Kevin D Malone MD</h3>
+              <div class="badge">Cardiology</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="doctor-card" id="doctor-4">
+          <div class="doctor-card__bg"></div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__avatar">
+              <img src="doctor4.png" alt="Angela S. Martin, MD">
+            </div>
+            <div class="doctor-card__text">
+              <h3>Angela S Martin MD</h3>
+              <div class="badge">Physical Therapy</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="contact" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" class="visually-hidden">Footer</h2>
+      <div class="site-footer__inner">
+        <a class="logo footer-logo" href="#home" aria-label="HealthSpecialist — to top">
+          <span class="logo-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="logo-text">Health<em>Specialist</em></span>
+        </a>
+    
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>SERVICES</h4>
+            <a href="#services">Family Medicine</a>
+            <a href="#services">Internal Medicine</a>
+            <a href="#services">Cardiology</a>
+            <a href="#services">Physical Therapy</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>DOCTORS</h4>
+            <a href="#doctor-1">Phillis K Vance MD</a>
+            <a href="#doctor-2">Stanley K Hudson MD</a>
+            <a href="#doctor-3">Kevin D Malone MD</a>
+            <a href="#doctor-4">Angela S Martin MD</a>
+          </div>
+
+          <div class="footer-col contact-col">
+            <h4>CONTACT</h4>
+            <a href="tel:+14041234567" class="phone-cta">
+              <span class="phone-cta__icon" aria-hidden="true">
+                <img src="phone.png" alt="" width="20" height="20">
+              </span>
+              (404)123 - 4567
+            </a>
+          </div>
+        </div><!-- /.footer-cols -->
+
+      </div><!-- /.site-footer__inner -->
+    </footer>
+
+  </div><!-- /.frame -->
+
+  <!-- Дропдаун (hover + клавіші) -->
+  <script>
+    document.querySelectorAll('.has-dropdown').forEach(w => {
+      const link = w.querySelector('a');
+      const menu = w.querySelector('.dropdown');
+      if (!link || !menu) return;
+      w.addEventListener('mouseenter', () => { menu.hidden = false; link.setAttribute('aria-expanded','true'); });
+      w.addEventListener('mouseleave', () => { menu.hidden = true; link.setAttribute('aria-expanded','false'); });
+      w.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === link) {
+          e.preventDefault();
+          const open = menu.hidden === false;
+          menu.hidden = open ? true : false;
+          link.setAttribute('aria-expanded', String(!open));
+        }
+        if (e.key === 'Escape') { menu.hidden = true; link.setAttribute('aria-expanded','false'); link.focus(); }
+      });
+    });
+  </script>
+
+  <!-- DOCTORS: відкриття по кліку + закриття при кліку поза меню -->
+  <script>
+    document.querySelectorAll('.has-dropdown').forEach(w => {
+      const link = w.querySelector('a');
+      const menu = w.querySelector('.dropdown');
+      if(!link || !menu) return;
+
+      // клік по DOCTORS
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const willOpen = menu.hidden !== false;
+        // спочатку закриємо всі інші
+        document.querySelectorAll('.has-dropdown .dropdown').forEach(m => m.hidden = true);
+        // потім відкриємо потрібне
+        menu.hidden = !willOpen ? true : false;
+      });
+
+      // клік поза меню — закриваємо
+      document.addEventListener('click', (e) => {
+        if(!w.contains(e.target)) menu.hidden = true;
+      });
+    });
+  </script>
+
+<script>
+  document.querySelectorAll(".learn-more-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const hero = button.closest(".hero-content");
+      hero.classList.toggle("expanded");
+
+      // Змінюємо текст кнопки
+      if (hero.classList.contains("expanded")) {
+        button.textContent = "SHOW LESS";
+      } else {
+        button.textContent = "LEARN MORE";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

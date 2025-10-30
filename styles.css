@@ -1,0 +1,824 @@
+/* ===== TOKENS ===== */
+:root{
+  --Blue:#4593FF;
+  --LightBlue:#F8FBFF;
+  --Grey:#3B4053;
+  --Muted:#8C96A7;
+  --White:#FFFFFF;
+
+  --bg:#F5F7FF;
+  --surface:#FFFFFF;
+
+  --radius:10px;
+  --radius-lg:16px;
+  --shadow:0 10px 30px rgba(19,33,68,.08);
+  --frame-w:1360px; 
+}
+
+/* ===== BASE ===== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--Grey);
+  background:var(--bg);
+  line-height:1.5;
+}
+img{display:block; max-width:100%; height:auto}
+a{text-decoration:none; color:inherit}
+
+/* Артборд */
+.frame{max-width:var(--frame-w); margin:40px auto; padding:0 24px}
+
+/* Кнопки */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:10px 16px; border-radius:5px; font-weight:700; font-size:15px; cursor:pointer; border:0; transition:.2s ease;}
+.btn:is(:hover,:focus-visible){transform:translateY(-1px)}
+.btn-light{background:var(--LightBlue); color:var(--Blue)}
+.btn-primary{background:var(--Blue); color:var(--White)}
+.btn-white{background:var(--White); color:var(--Blue)}
+
+/* ===== HEADER ===== */
+.header{background:var(--Blue); border-radius:var(--radius); height:90px; display:flex; align-items:center; box-shadow:var(--shadow);}
+.header-inner{width:100%; max-width:var(--frame-w); margin:0 auto; padding:0 40px; display:flex; align-items:center; justify-content:space-between;}
+
+/* LOGO: квітка-діамант */
+.logo{display:flex; align-items:center; gap:14px;}
+.logo-mark{ position:relative; width:34px; height:34px; }
+.logo-mark span{
+  position:absolute; width:12px; height:12px; border-radius:50%;
+  background:var(--LightBlue); box-shadow:0 2px 6px rgba(0,0,0,.12);
+}
+.logo-mark span:nth-child(1){ top:0;      left:50%; transform:translate(-50%,0); }
+.logo-mark span:nth-child(2){ top:50%;    left:0;   transform:translate(0,-50%); }
+.logo-mark span:nth-child(3){ top:50%;    right:0;  transform:translate(0,-50%); }
+.logo-mark span:nth-child(4){ bottom:0;   left:50%; transform:translate(-50%,0); }
+
+.logo-text{color:var(--LightBlue); font-weight:700; font-size:19px; letter-spacing:.2px}
+.logo-text em{font-weight:400; font-style:normal; opacity:.95}
+
+.nav{display:flex; align-items:center; gap:70px;}
+.nav a{font-weight:500; font-size:13px; color:var(--LightBlue)}
+
+.auth{display:flex; align-items:center; gap:24px}
+.login{font-weight:700; font-size:15px; color:var(--LightBlue)}
+
+/* ===== DROPDOWN (Doctors) ===== */
+.has-dropdown{ position:relative; display:inline-flex; align-items:center; }
+.has-dropdown > a{ display:inline-flex; align-items:center; }
+.dropdown{
+  position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%);
+  width:180px; margin:0; padding:0; list-style:none; display:grid; gap:8px; z-index:20;
+}
+.dropdown a{
+  display:block; font-size:10px; font-weight:500; color:var(--White);
+  background:var(--Blue); padding:15px 10px; border-radius:5px; box-shadow:var(--shadow);
+  border:1px solid transparent;
+}
+
+.dropdown a:is(:hover,:focus){ background:var(--White); color:var(--Blue); border-color:var(--Blue); }
+.has-dropdown:hover .dropdown{ display:grid; }
+.has-dropdown .dropdown[hidden]{ display:none; }
+
+/* ===== HERO ===== */
+.hero{
+  display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap:24px;
+  background:var(--surface); border-radius:var(--radius-lg); box-shadow:var(--shadow);
+  padding:60px 40px; margin-top:24px;
+}
+.hero-content h1{ font-size:40px; font-weight:700; color:var(--Grey); margin:0 0 16px; }
+.hero-content p{ font-weight:300; font-size:16px; line-height:24px; color:var(--Grey); margin:0 0 24px; max-width:56ch; }
+.hero-art{ display:flex; justify-content:flex-end; }
+.hero-art img{ max-width:480px; width:100%; height:auto; }
+
+/* ===== INFO CARDS (3×) ===== */
+.info-cards{
+  margin-top:32px; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px;
+}
+.info-card{
+  background:var(--LightBlue); border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:50px; min-height:350px; display:flex; flex-direction:column; gap:30px;
+}
+.info-card h3{ font-size:20px; font-weight:700; color:var(--Grey); margin:0; }
+.info-card p{ font-size:12px; font-weight:300; line-height:22px; color:var(--Grey); margin:0; }
+.info-card .btn{ align-self:start; }
+/* dotted leaders у годиннику */
+.info-card p .dotline{ display:inline-block; width:100px; border-bottom:1px dotted rgba(59,64,83,.25); transform:translateY(-3px); margin:0 10px; }
+
+/* ===== DOCTORS (горизонтальний скрол) ===== */
+.doctors{ margin-top:56px; }
+.doctors h2{ font-size:40px; font-weight:700; color:var(--Grey); margin:0 0 20px; }
+.doctors-scroller{
+  display:grid; grid-auto-flow:column; grid-auto-columns:max-content; gap:20px;
+  overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;
+}
+.doctors-scroller::-webkit-scrollbar{ height:8px; }
+.doctors-scroller::-webkit-scrollbar-thumb{ background:rgba(69,147,255,.3); border-radius:999px; }
+.doctors-scroller:focus{ outline:2px solid rgba(0,0,0,.08); outline-offset:4px; }
+
+.doctor-card{ position:relative; width:427px; scroll-snap-align:start; }
+.doctor-card__bg{ height:190px; background:var(--LightBlue); border-radius:var(--radius); box-shadow:var(--shadow); }
+.doctor-card__body{ position:absolute; inset:0; display:grid; grid-template-columns:110px 1fr; align-items:center; gap:20px; padding:0 20px; }
+.doctor-card__avatar{ width:110px; height:110px; border-radius:50%; overflow:hidden; box-shadow:var(--shadow); background:#fff; }
+.doctor-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+  object-position: center top; 
+}
+
+.doctor-card__text h3{ margin:0 0 10px; font-size:18px; font-weight:600; color:var(--Grey); }
+.badge{ display:inline-block; padding:10px; border-radius:5px; background:var(--Grey); color:var(--White); font-size:14px; font-weight:500; }
+
+/* ===== FOOTER ===== */
+.site-footer{ margin-top:64px; background:var(--LightBlue); border-radius:var(--radius); }
+.site-footer__inner{
+  max-width:var(--frame-w); margin:0 auto; padding:32px 40px;
+  display:grid; grid-template-columns:280px 1fr; align-items:start; gap:24px;
+}
+.footer-logo .logo-text{ color:var(--Blue); }
+.footer-logo .logo-mark span{ background:var(--Blue); }
+
+.footer-cols{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; }
+.footer-col h4{ margin:0 0 12px; font-size:13px; font-weight:700; color:var(--Grey); }
+.footer-col a{ display:block; font-size:10px; font-weight:500; color:var(--Grey); margin-bottom:8px; }
+
+/* === CONTACT BUTTON  === */
+.footer-col:last-child{ text-align:center; }
+.footer-col .phone-cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:12px;
+  height:56px; padding:0 28px; width:auto; margin:6px auto 0;
+  background:var(--Blue); color:#fff; font-weight:700; font-size:15px;
+  border-radius:8px; box-shadow:var(--shadow); text-decoration:none; transition:.2s ease;
+}
+.footer-col .phone-cta:hover{ background:#2f7ae7; transform:translateY(-1px); }
+.footer-col .phone-cta__icon img{
+  width:22px; height:22px; display:block; object-fit:contain; filter:brightness(0) invert(1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1200px){
+  .hero-art img{ max-width:420px; }
+}
+@media (max-width:1024px){
+  .nav{ gap:32px }
+  .header-inner{ padding:0 20px }
+  .logo-text{ font-size:18px }
+  .hero{ grid-template-columns:1fr; padding:36px 24px; }
+  .hero-art{ justify-content:center; }
+  .hero-art img{ max-width:380px; }
+  .info-cards{ grid-template-columns:1fr 1fr; }
+  .site-footer__inner{ grid-template-columns:1fr; }
+  .footer-cols{ grid-template-columns:1fr 1fr 1fr; }
+}
+@media (max-width:768px){
+  .nav{ display:none }
+  .auth .login{ display:none }
+  .info-cards{ grid-template-columns:1fr; }
+  .footer-cols{ grid-template-columns:1fr; }
+  .hero-content h1{ font-size:32px; }
+  .hero-content p{ font-size:15px; line-height:22px; }
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--LightBlue);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+
+  padding: 40px 32px;
+  min-height: 340px; 
+  max-height: 360px;
+}
+
+/* Заголовок */
+.info-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--Grey);
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+/* Текст однаковий у всіх */
+.info-card p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--Grey);
+  margin: 0 auto 24px;
+  max-width: 260px; 
+  text-align: center;
+  min-height: 80px; 
+}
+
+/* Кнопка */
+.info-card .btn {
+  align-self: center;
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 26px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+/* Середня картка — таблиця годин */
+.info-card--hours .hours {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto 20px;
+}
+.info-card--hours .hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--Grey);
+  padding: 6px 0;
+}
+.info-card--hours .hours-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(59,64,83,.15);
+  margin: 4px 0 6px;
+}
+
+/* Hover-ефект — легкий підйом */
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(69,147,255,0.2);
+  transition: all 0.25s ease;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1024px){
+  .info-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px){
+  .info-cards { grid-template-columns: 1fr; }
+}
+
+.footer-cols{ align-items: start; }
+
+
+.footer-col a{ text-align:left; }
+
+/* всередині колонки кнопка без додаткових зсувів */
+.contact-col .phone-cta{
+  margin-left:0;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.contact-col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   
+}
+
+.contact-col h4{
+  margin: 0 0 12px 0;        
+  text-align: left;
+}
+
+.contact-col .phone-cta{
+  margin: 0;                 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;   
+}
+
+.dropdown{
+  width: 220px;              
+  padding: 4px 0;
+  gap: 10px;
+}
+
+.dropdown a{
+  display: flex;             
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 48px;              
+  padding: 0 16px;           
+  border-radius: 10px;
+  background: var(--Blue);
+  color: var(--White);
+  font-size: 13px;
+  font-weight: 600;
+
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+  white-space: nowrap;       
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, transform .06s ease;
+}
+
+.dropdown a:is(:hover,:focus-visible){
+  background: #fff;          
+  color: var(--Blue);
+  border-color: var(--Blue);
+  transform: translateY(-1px);
+}
+
+.has-dropdown{ position:relative }
+.has-dropdown:hover .dropdown{ display:grid }
+.has-dropdown .dropdown[hidden]{ display:none }
+
+.has-dropdown{
+  position: relative;
+}
+
+
+.has-dropdown::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  height:12px;              
+}
+
+.dropdown{
+  position:absolute;
+  top:calc(100% + 0px);     
+  left:50%;
+  transform:translateX(-50%);
+  width:220px;              
+  padding:6px 0;
+  display:grid;
+  gap:10px;
+  z-index: 50;
+}
+
+.dropdown a{
+  display:flex;
+  align-items:center;
+  justify-content:center;   
+  height:48px;              
+  width:100%;
+  padding:0 16px;
+  border-radius:12px;
+  background:var(--Blue);
+  color:var(--White);
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  white-space:nowrap;
+  border:1px solid transparent;
+  box-shadow:var(--shadow);
+  transition:background .15s, color .15s, border-color .15s, transform .06s;
+}
+
+.dropdown a:is(:hover,:focus-visible){
+  background:#fff;
+  color:var(--Blue);
+  border-color:var(--Blue);
+  transform:translateY(-1px);
+}
+
+
+.has-dropdown:hover .dropdown{ display:grid; }
+.has-dropdown .dropdown[hidden]{ display:none; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap; 
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+.hero-content .btn {
+  margin-top: 24px;  
+}
+.hero-content .btn {
+  margin-top: 24px;
+  background: var(--Blue);
+  color: var(--White);
+}
+.hero-content .btn:hover {
+  background: #2f7ae7; 
+}
+
+/* === Doctors: рівний тон під рядом карток, без смуг і тіней контейнера === */
+.doctors{
+  background: transparent;     /* жодного фону/градієнта */
+        /* щоб тіні карток не обрізало */
+}
+
+.doctors::before,
+.doctors::after{
+  content: none !important;    /* якщо десь додавалась декорація */
+}
+
+/* контейнер скролу – без будь-яких рамок/фонів/тіней/градієнтів */
+.doctors-scroller{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+
+  /* смугу прокрутки приховуємо, скрол залишається */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.doctors-scroller::-webkit-scrollbar{ display:none; }
+
+/* на всяк випадок — прибираємо можливі псевдоелементи зі смужкою */
+.doctors-scroller::before,
+.doctors-scroller::after{
+  content: none !important;
+}
+
+/* 1) Рівний фон у проміжках */
+.doctors,
+.doctors-scroller{
+  background: var(--bg) !important;  /* той самий фон, що у сторінки */
+  box-shadow: none !important;
+}
+
+/* 2) Прибираємо бокові тіні ЗОВСІМ */
+.doctor-card{
+  box-shadow: none !important;                 /* тіні картки — off */
+  border: 1px solid rgba(19,33,68, .06);       /* акуратний бордер */
+  background: var(--LightBlue);                /* як у макеті */
+  position: relative;
+}
+
+/* 3) (опціонально) м’яка тінь тільки ВНИЗ – не дає артефактів збоку */
+.doctor-card::after{
+  content:"";
+  position:absolute;
+  left:24px; right:24px; bottom:-8px;
+  height:14px; border-radius:14px;
+  background: rgba(19,33,68,.16);
+  filter: blur(10px);
+  opacity: .25;                 /* підкрути 0–0.35 за смаком */
+  pointer-events:none;
+}
+
+/* трохи більше повітря між картками, щоб виглядало легше */
+.doctors-scroller{ gap: 32px !important; }
+@media (max-width: 768px){ .doctors-scroller{ gap: 20px !important; } }
+
+/* === DOCTORS CARDS: тінь тільки вниз, без смуг, з округленням === */
+
+.doctor-card {
+  border-radius: 16px; /* або var(--radius), якщо є змінна */
+  background: var(--LightBlue);
+  box-shadow: none; /* вимикаємо стару тінь */
+  position: relative;
+  overflow: hidden; /* щоб нічого не вибивалось за межі */
+}
+
+/* тінь лише знизу — як легкий відступ від фону */
+.doctor-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0));
+  border-radius: 0 0 16px 16px;
+  filter: blur(6px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* вирівняти фон секції, щоб не було різниці у кольорах */
+.doctors, .doctors-scroller {
+  background: var(--bg);
+  box-shadow: none;
+}
+
+/* Вирівнюємо кнопку по центру під текстом */
+.doctor-card__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрує по горизонталі */
+  justify-content: center;
+  gap: 10px; /* відстань між іменем і кнопкою */
+  text-align: center;
+}
+
+/* Робимо кнопку компактнішою і охайною */
+.badge {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--Grey);
+  color: var(--White);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.hidden-text {
+  display: none;
+  margin-top: 10px;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+.hero-content.expanded .hidden-text {
+  display: block;
+}
+
+.learn-more-btn {
+  margin-top: 20px;
+  background: #4593ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background: #3377e5;
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #f3f8ff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 2px 8px rgba(27,108,251,0.08);
+}
+
+.service-icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(27,108,251,0.15));
+  transition: transform 0.25s ease;
+}
+
+.service-icon img:hover {
+  transform: scale(1.07);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,320px),1fr));
+  gap: 24px;
+}
+
+/* Картка */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 40px rgba(15,27,46,0.08);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.18s ease-in-out;
+  border: 1px solid rgba(15,27,46,0.05);
+}
+
+/* Контейнер під іконку */
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #f3f8ff;
+  border-radius: 16px;
+  margin: 0 auto 20px;
+  box-shadow: 0 2px 8px rgba(27,108,251,0.08);
+
+  /* важливо: фіксуємо позицію і все центруємо */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;         /* якщо в png є зайвий простір */
+}
+
+/* Саме зображення */
+.service-icon img {
+  max-width: 60px;
+  max-height: 60px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(27,108,251,0.15));
+}
+/* верхній синій блок Services */
+.page-hero {
+  background: #1b6cfb;
+  color: #fff;
+  padding: 60px 16px;
+}
+.page-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page-eyebrow {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.page-eyebrow a {
+  color: #fff;
+  text-decoration: none;
+  opacity: .9;
+}
+.page-eyebrow a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.page-title {
+  font-size: clamp(1.8rem, 1vw + 1rem, 2.2rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.page-desc {
+  font-size: 1rem;
+  max-width: 640px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* блок із сіткою */
+.services-section {
+  background: #f5fbff;
+  padding: 48px 16px 80px;
+}
+.services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,320px),1fr));
+  gap: 24px;
+}
+
+/* картка */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 40px rgba(15,27,46,0.08);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.18s ease-in-out;
+  border: 1px solid rgba(15,27,46,0.05);
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 48px rgba(15,27,46,0.12);
+}
+
+/* контейнер для іконки */
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #f3f8ff;
+  border-radius: 16px;
+  margin: 0 auto 20px;
+  box-shadow: 0 2px 8px rgba(27,108,251,0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* сама іконка */
+.service-icon img {
+  max-width: 60px;
+  max-height: 60px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(27,108,251,0.15));
+}
+
+.service-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f1b2e;
+  margin-bottom: 8px;
+}
+.service-text {
+  font-size: 0.95rem;
+  color: #6b7a90;
+  line-height: 1.45;
+}
+
+.service-icon img {
+  max-width: 60px;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  filter: brightness(1.3) drop-shadow(0 3px 6px rgba(27,108,251,0.1));
+}
+
+body > h1:first-of-type {
+  display: none;
+}
+
+.services-section {
+  margin-bottom: 0;
+  padding-bottom: 4rem; /* щоб дихало перед футером */
+}
+
+.site-footer {
+  background: transparent !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+body {
+  background-color: #f8fdff; /* основний фон сторінки */
+}
+
+.services-section {
+  background-color: #f8fdff;
+}
+
+.site-footer {
+  background-color: #f8fdff !important; /* щоб фон був той самий */
+  border-top: none !important;
+  box-shadow: none !important;
+}
+/* 1. Основний фон для всієї сторінки */
+body {
+  background-color: #f8fdff !important;
+}
+
+/* 2. Футер такого ж кольору */
+.site-footer {
+  background-color: #f8fdff !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. Секція Doctors теж має бути прозорою зверху (без свого фону) */
+.doctors-section,
+.doctors,
+#doctors,
+section.doctors,
+section#doctors {
+  background-color: transparent !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* 4. Внутрішній верхній бар (оця світло-фіолетова шапка всередині секції) */
+.doctors-section > div,
+.doctors > div,
+#doctors > div,
+section.doctors > div,
+section#doctors > div {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
