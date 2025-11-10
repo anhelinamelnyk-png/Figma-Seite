@@ -17,7 +17,6 @@
   <div class="frame">
 
     <!-- ===== HEADER ===== -->
-    <!-- role="banner" не потрібен для <header> -->
     <header class="header">
       <div class="header-inner">
         <!-- Logo -->
@@ -34,7 +33,6 @@
           <a href="#about">ABOUT</a>
           <a href="services.html">SERVICES</a>
 
-          <!-- DOCTORS з дропдауном -->
           <div class="has-dropdown">
             <a href="#doctors" aria-haspopup="true" aria-expanded="false">DOCTORS</a>
             <ul class="dropdown" role="menu" aria-label="Doctors list" hidden>
@@ -48,7 +46,6 @@
           <a href="#contact">CONTACT</a>
         </nav>
 
-        <!-- Actions -->
         <div class="auth">
           <a class="login" href="#login">LOG IN</a>
           <button class="btn btn-light" type="button">SIGN UP</button>
@@ -57,33 +54,32 @@
     </header>
 
     <!-- ===== HERO ===== -->
-<section class="hero" id="home" aria-label="Header hero">
-  <div class="hero-content">
-    <h1>Dedicated Health<br>Care Specialists</h1>
+    <section class="hero" id="home" aria-label="Header hero">
+      <div class="hero-content">
+        <h1>Dedicated Health<br>Care Specialists</h1>
 
-    <p class="short-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua.
-    </p>
+        <p class="short-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua.
+        </p>
 
-    <p class="hidden-text">
-      Vestibulum viverra aliquet turpis, non vehicula purus condimentum eu. Curabitur nec risus at justo congue tincidunt.
-      Quisque posuere arcu a nibh interdum, nec convallis magna feugiat. Donec dignissim lorem nec feugiat dictum.
-    </p>
+        <p class="hidden-text">
+          Vestibulum viverra aliquet turpis, non vehicula purus condimentum eu. Curabitur nec risus at justo congue tincidunt.
+          Quisque posuere arcu a nibh interdum, nec convallis magna feugiat. Donec dignissim lorem nec feugiat dictum.
+        </p>
 
-    <button class="btn btn-white learn-more-btn" type="button">LEARN MORE</button>
-  </div>
+        <button class="btn btn-white learn-more-btn" type="button">LEARN MORE</button>
+      </div>
 
-  <div class="hero-art" aria-hidden="true">
-    <img src="ambulance.png" alt="Ambulance illustration">
-  </div>
-</section>
+      <div class="hero-art" aria-hidden="true">
+        <img src="img/ambulance.png" alt="Ambulance illustration">
+      </div>
+    </section>
 
     <!-- ===== 3 ТЕКСТОВІ БОКСИ ===== -->
     <section class="info-cards" aria-labelledby="info-cards-heading">
       <h2 id="info-cards-heading" class="visually-hidden">Key information</h2>
 
-      <!-- 1 -->
       <article class="info-card">
         <h3>EMERGENCIES</h3>
         <p>
@@ -93,7 +89,6 @@
         <button class="btn btn-primary" type="button">MORE INFO</button>
       </article>
 
-      <!-- 2 -->
       <article class="info-card info-card--hours">
         <h3>OPERATING HOURS</h3>
 
@@ -117,7 +112,6 @@
         <button class="btn btn-primary" type="button">MAKE AN APPOINTMENT</button>
       </article>
 
-      <!-- 3 -->
       <article class="info-card">
         <h3>TEST RESULTS</h3>
         <p>
@@ -128,18 +122,16 @@
       </article>
     </section>
 
-
-    <!-- ===== DOCTORS (горизонтальний скрол) ===== -->
+    <!-- ===== DOCTORS ===== -->
     <section class="doctors" id="doctors" aria-labelledby="doctors-heading">
       <h2 id="doctors-heading">Doctors</h2>
 
-      <!-- aria-label замінено на aria-labelledby, додаємо роль регіону для кращої доступності -->
       <div class="doctors-scroller" role="region" tabindex="0" aria-labelledby="doctors-heading">
         <article class="doctor-card" id="doctor-1">
           <div class="doctor-card__bg"></div>
           <div class="doctor-card__body">
             <div class="doctor-card__avatar">
-              <img src="doctor1.png" alt="Phillis K Vance, MD">
+              <img src="img/doctor1.png" alt="Phillis K Vance, MD">
             </div>
             <div class="doctor-card__text">
               <h3>Phillis K Vance MD</h3>
@@ -152,7 +144,7 @@
           <div class="doctor-card__bg"></div>
           <div class="doctor-card__body">
             <div class="doctor-card__avatar">
-              <img src="doctor2.png" alt="Stanley K Hudson, MD">
+              <img src="img/doctor2.png" alt="Stanley K Hudson, MD">
             </div>
             <div class="doctor-card__text">
               <h3>Stanley K Hudson MD</h3>
@@ -165,7 +157,7 @@
           <div class="doctor-card__bg"></div>
           <div class="doctor-card__body">
             <div class="doctor-card__avatar">
-              <img src="doctor3.png" alt="Kevin D. Malone, MD">
+              <img src="img/doctor3.png" alt="Kevin D. Malone, MD">
             </div>
             <div class="doctor-card__text">
               <h3>Kevin D Malone MD</h3>
@@ -178,7 +170,7 @@
           <div class="doctor-card__bg"></div>
           <div class="doctor-card__body">
             <div class="doctor-card__avatar">
-              <img src="doctor4.png" alt="Angela S. Martin, MD">
+              <img src="img/doctor4.png" alt="Angela S. Martin, MD">
             </div>
             <div class="doctor-card__text">
               <h3>Angela S Martin MD</h3>
@@ -221,19 +213,18 @@
             <h4>CONTACT</h4>
             <a href="tel:+14041234567" class="phone-cta">
               <span class="phone-cta__icon" aria-hidden="true">
-                <img src="phone.png" alt="" width="20" height="20">
+                <img src="img/phone.png" alt="" width="20" height="20">
               </span>
               (404)123 - 4567
             </a>
           </div>
-        </div><!-- /.footer-cols -->
-
-      </div><!-- /.site-footer__inner -->
+        </div>
+      </div>
     </footer>
 
-  </div><!-- /.frame -->
+  </div>
 
-  <!-- Дропдаун (hover + клавіші) -->
+  <!-- JS -->
   <script>
     document.querySelectorAll('.has-dropdown').forEach(w => {
       const link = w.querySelector('a');
@@ -253,45 +244,34 @@
     });
   </script>
 
-  <!-- DOCTORS: відкриття по кліку + закриття при кліку поза меню -->
   <script>
     document.querySelectorAll('.has-dropdown').forEach(w => {
       const link = w.querySelector('a');
       const menu = w.querySelector('.dropdown');
       if(!link || !menu) return;
 
-      // клік по DOCTORS
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const willOpen = menu.hidden !== false;
-        // спочатку закриємо всі інші
         document.querySelectorAll('.has-dropdown .dropdown').forEach(m => m.hidden = true);
-        // потім відкриємо потрібне
         menu.hidden = !willOpen ? true : false;
       });
 
-      // клік поза меню — закриваємо
       document.addEventListener('click', (e) => {
         if(!w.contains(e.target)) menu.hidden = true;
       });
     });
   </script>
 
-<script>
-  document.querySelectorAll(".learn-more-btn").forEach(button => {
-    button.addEventListener("click", () => {
-      const hero = button.closest(".hero-content");
-      hero.classList.toggle("expanded");
-
-      // Змінюємо текст кнопки
-      if (hero.classList.contains("expanded")) {
-        button.textContent = "SHOW LESS";
-      } else {
-        button.textContent = "LEARN MORE";
-      }
+  <script>
+    document.querySelectorAll(".learn-more-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const hero = button.closest(".hero-content");
+        hero.classList.toggle("expanded");
+        button.textContent = hero.classList.contains("expanded") ? "SHOW LESS" : "LEARN MORE";
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
