@@ -433,18 +433,18 @@ a{text-decoration:none; color:inherit}
   background: #2f7ae7; 
 }
 
-/* === Doctors: рівний тон під рядом карток, без смуг і тіней контейнера === */
+/* === Doctors === */
 .doctors{
-  background: transparent;     /* жодного фону/градієнта */
-        /* щоб тіні карток не обрізало */
+  background: transparent;     
+        
 }
 
 .doctors::before,
 .doctors::after{
-  content: none !important;    /* якщо десь додавалась декорація */
+  content: none !important;    
 }
 
-/* контейнер скролу – без будь-яких рамок/фонів/тіней/градієнтів */
+/* контейнер скролу  */
 .doctors-scroller{
   background: transparent !important;
   border: 0 !important;
@@ -452,13 +452,12 @@ a{text-decoration:none; color:inherit}
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 
-  /* смугу прокрутки приховуємо, скрол залишається */
+  /* смуга прокрутки прихована*/
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .doctors-scroller::-webkit-scrollbar{ display:none; }
 
-/* на всяк випадок — прибираємо можливі псевдоелементи зі смужкою */
 .doctors-scroller::before,
 .doctors-scroller::after{
   content: none !important;
@@ -467,19 +466,19 @@ a{text-decoration:none; color:inherit}
 /* 1) Рівний фон у проміжках */
 .doctors,
 .doctors-scroller{
-  background: var(--bg) !important;  /* той самий фон, що у сторінки */
+  background: var(--bg) !important;  
   box-shadow: none !important;
 }
 
-/* 2) Прибираємо бокові тіні ЗОВСІМ */
+/* 2) Прибирані бокові тіні */
 .doctor-card{
-  box-shadow: none !important;                 /* тіні картки — off */
-  border: 1px solid rgba(19,33,68, .06);       /* акуратний бордер */
-  background: var(--LightBlue);                /* як у макеті */
+  box-shadow: none !important;                 
+  border: 1px solid rgba(19,33,68, .06);       
+  background: var(--LightBlue);                
   position: relative;
 }
 
-/* 3) (опціонально) м’яка тінь тільки ВНИЗ – не дає артефактів збоку */
+/* 3) (опціонально) м’яка тінь тільки ВНИЗ  */
 .doctor-card::after{
   content:"";
   position:absolute;
@@ -487,25 +486,25 @@ a{text-decoration:none; color:inherit}
   height:14px; border-radius:14px;
   background: rgba(19,33,68,.16);
   filter: blur(10px);
-  opacity: .25;                 /* підкрути 0–0.35 за смаком */
+  opacity: .25;                 
   pointer-events:none;
 }
 
-/* трохи більше повітря між картками, щоб виглядало легше */
+/* повітря між картками */
 .doctors-scroller{ gap: 32px !important; }
 @media (max-width: 768px){ .doctors-scroller{ gap: 20px !important; } }
 
-/* === DOCTORS CARDS: тінь тільки вниз, без смуг, з округленням === */
+/* === DOCTORS CARDS === */
 
 .doctor-card {
-  border-radius: 16px; /* або var(--radius), якщо є змінна */
+  border-radius: 16px; 
   background: var(--LightBlue);
-  box-shadow: none; /* вимикаємо стару тінь */
+  box-shadow: none; 
   position: relative;
-  overflow: hidden; /* щоб нічого не вибивалось за межі */
+  overflow: hidden; 
 }
 
-/* тінь лише знизу — як легкий відступ від фону */
+/* тінь лише знизу  */
 .doctor-card::after {
   content: "";
   position: absolute;
@@ -520,13 +519,13 @@ a{text-decoration:none; color:inherit}
   pointer-events: none;
 }
 
-/* вирівняти фон секції, щоб не було різниці у кольорах */
+/* рівний фон секції */
 .doctors, .doctors-scroller {
   background: var(--bg);
   box-shadow: none;
 }
 
-/* Вирівнюємо кнопку по центру під текстом */
+/* кнопка по центру під текстом */
 .doctor-card__text {
   display: flex;
   flex-direction: column;
@@ -536,7 +535,6 @@ a{text-decoration:none; color:inherit}
   text-align: center;
 }
 
-/* Робимо кнопку компактнішою і охайною */
 .badge {
   display: inline-block;
   padding: 10px 18px;
@@ -625,11 +623,11 @@ a{text-decoration:none; color:inherit}
   margin: 0 auto 20px;
   box-shadow: 0 2px 8px rgba(27,108,251,0.08);
 
-  /* важливо: фіксуємо позицію і все центруємо */
+  /*  позиція і все центрування */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;         /* якщо в png є зайвий простір */
+  overflow: hidden;         
 }
 
 /* Саме зображення */
@@ -801,7 +799,7 @@ body {
   box-shadow: none !important;
 }
 
-/* 3. Секція Doctors теж має бути прозорою зверху (без свого фону) */
+/* 3. Секція Doctors прозора зверху  */
 .doctors-section,
 .doctors,
 #doctors,
@@ -812,7 +810,7 @@ section#doctors {
   box-shadow: none !important;
 }
 
-/* 4. Внутрішній верхній бар (оця світло-фіолетова шапка всередині секції) */
+/* 4. Внутрішній верхній бар  */
 .doctors-section > div,
 .doctors > div,
 #doctors > div,

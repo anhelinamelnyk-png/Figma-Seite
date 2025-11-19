@@ -31,19 +31,16 @@
   </script>
 
   <style>
-    /* утиліти */
     .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .no-scrollbar{scrollbar-width:none;-ms-overflow-style:none}
     .no-scrollbar::-webkit-scrollbar{display:none}
 
-    /* ===== NAV – місток під дропдауном ===== */
     .has-dd{position:relative}
     .has-dd::after{
       content:""; position:absolute; left:0; right:0; top:100%;
-      height:14px; /* місток, щоб курсор не «обривав» ховер */
+      height:14px;
     }
 
-    /* показ/приховування меню (клас hidden керується JS + hover) */
     .has-dd:hover .dropdown{display:grid}
   </style>
 </head>
@@ -51,123 +48,195 @@
 
   <div class="max-w-frame mx-auto px-4 sm:px-6">
 
-    <!-- ===== HEADER ===== -->
-    <header class="mt-12 h-[90px] rounded-[10px] bg-blue shadow-soft flex items-center">
-      <div class="w-full max-w-frame mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        
-        <!-- Logo -->
-        <a href="#home" aria-label="Home" class="flex items-center gap-3.5">
-          <span class="relative w-[40px] h-[40px]" aria-hidden="true">
-            <span class="absolute w-[12px] h-[12px] rounded-full bg-light left-1/2 -translate-x-1/2 top-0"></span>
-            <span class="absolute w-[12px] h-[12px] rounded-full bg-light top-1/2 -translate-y-1/2 left-0"></span>
-            <span class="absolute w-[12px] h-[12px] rounded-full bg-light top-1/2 -translate-y-1/2 right-0"></span>
-            <span class="absolute w-[12px] h-[12px] rounded-full bg-light left-1/2 -translate-x-1/2 bottom-0"></span>
-          </span>
-          <span class="text-light font-bold text-[20px] tracking-[.15px]">
-            Health<em class="not-italic font-normal opacity-95">Specialist</em>
-          </span>
-        </a>
+   <!-- ===== HEADER ===== -->
+<header class="mt-6 sm:mt-10 lg:mt-12 rounded-[10px] bg-blue shadow-soft">
+  <div class="w-full max-w-frame mx-auto px-4 sm:px-8 lg:px-12
+              h-[64px] sm:h-[72px] lg:h-[90px]
+              flex items-center justify-between gap-4">
 
-        <!-- Навігація -->
-        <nav class="hidden md:flex items-center gap-[58px] text-[12.5px] font-medium text-light tracking-[0.25px]" aria-label="Основне меню">
-          <a href="#home" class="hover:opacity-90 transition">HOME</a>
-          <a href="#about" class="hover:opacity-90 transition">ABOUT</a>
-          <a href="services.html" class="hover:opacity-90 transition">SERVICES</a>
+    <!-- Logo -->
+    <a href="#home" aria-label="Home" class="flex items-center gap-3.5">
+      <span class="relative w-[34px] h-[34px] sm:w-[40px] sm:h-[40px]" aria-hidden="true">
+        <span class="absolute w-3 h-3 sm:w-[12px] sm:h-[12px] rounded-full bg-light left-1/2 -translate-x-1/2 top-0"></span>
+        <span class="absolute w-3 h-3 sm:w-[12px] sm:h-[12px] rounded-full bg-light top-1/2 -translate-y-1/2 left-0"></span>
+        <span class="absolute w-3 h-3 sm:w-[12px] sm:h-[12px] rounded-full bg-light top-1/2 -translate-y-1/2 right-0"></span>
+        <span class="absolute w-3 h-3 sm:w-[12px] sm:h-[12px] rounded-full bg-light left-1/2 -translate-x-1/2 bottom-0"></span>
+      </span>
+      <span class="text-light font-bold text-[18px] sm:text-[20px] tracking-[.15px]">
+        Health<em class="not-italic font-normal opacity-95">Specialist</em>
+      </span>
+    </a>
 
-          <div class="has-dd">
-            <a href="#doctors" aria-haspopup="true" aria-expanded="false" class="select-none hover:opacity-90 transition">DOCTORS</a>
-            <ul
-              class="dropdown hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[200px] grid gap-2 z-50"
-              role="menu" aria-label="Doctors list">
-              <li><a href="#doctor-1"
-                     class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
-                     Phillis K Vance MD</a></li>
-              <li><a href="#doctor-2"
-                     class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
-                     Stanley K Hudson MD</a></li>
-              <li><a href="#doctor-3"
-                     class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
-                     Kevin D Malone MD</a></li>
-              <li><a href="#doctor-4"
-                     class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
-                     Angela S Martin MD</a></li>
-            </ul>
-          </div>
+    <!-- Десктоп-меню (видно тільки з lg ↑) -->
+    <nav
+      class="hidden lg:flex items-center gap-[32px] xl:gap-[58px]
+             text-[11px] xl:text-[12.5px] font-medium text-light tracking-[0.25px]"
+      aria-label="Основне меню">
 
-          <a href="#contact" class="hover:opacity-90 transition">CONTACT</a>
-        </nav>
+      <a href="#home" class="hover:opacity-90 transition">HOME</a>
+      <a href="#about" class="hover:opacity-90 transition">ABOUT</a>
+      <a href="services.html" class="hover:opacity-90 transition">SERVICES</a>
 
-        <!-- Авторизація -->
-        <div class="flex items-center gap-5">
-          <a class="hidden md:inline-block font-bold text-[14.5px] text-light hover:opacity-90 transition" href="#login">LOG IN</a>
-          <button type="button"
-            class="inline-flex items-center rounded-md bg-light text-blue font-bold text-[14.5px] px-5 py-1.5 hover:bg-blue/10 transition">
-            SIGN UP
-          </button>
-        </div>
+      <div class="has-dd">
+        <a href="#doctors" aria-haspopup="true" aria-expanded="false"
+           class="select-none hover:opacity-90 transition">DOCTORS</a>
+        <ul
+          class="dropdown hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[200px] grid gap-2 z-50"
+          role="menu" aria-label="Doctors list">
+          <li><a href="#doctor-1"
+                 class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
+                 Phillis K Vance MD</a></li>
+          <li><a href="#doctor-2"
+                 class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
+                 Stanley K Hudson MD</a></li>
+          <li><a href="#doctor-3"
+                 class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
+                 Kevin D Malone MD</a></li>
+          <li><a href="#doctor-4"
+                 class="h-[46px] rounded-[10px] bg-blue text-white text-[12.5px] font-semibold px-4 flex items-center justify-center border border-transparent hover:bg-white hover:text-blue hover:border-blue transition">
+                 Angela S Martin MD</a></li>
+        </ul>
       </div>
-    </header>
+
+      <a href="#contact" class="hover:opacity-90 transition">CONTACT</a>
+    </nav>
+
+    <!-- Праворуч: логін/реєстрація на десктопі -->
+    <div class="hidden lg:flex items-center gap-5">
+      <a class="font-bold text-[14.5px] text-light hover:opacity-90 transition" href="#login">LOG IN</a>
+      <button type="button"
+        class="inline-flex items-center rounded-md bg-light text-blue font-bold text-[14.5px] px-5 py-1.5 hover:bg-blue/10 transition">
+        SIGN UP
+      </button>
+    </div>
+
+    <!-- Бургер на мобілці/планшеті -->
+    <button type="button"
+      id="mobile-menu-toggle"
+      class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-md bg-light/15 text-light hover:bg-light/25 transition"
+      aria-label="Open menu">
+      <span class="space-y-[3px]">
+        <span class="block w-4 h-[2px] rounded-full bg-current"></span>
+        <span class="block w-4 h-[2px] rounded-full bg-current"></span>
+        <span class="block w-4 h-[2px] rounded-full bg-current"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== MOBILE FULLSCREEN MENU ===== -->
+<div id="mobile-menu"
+     class="fixed inset-0 z-40 bg-blue text-white hidden">
+  <div class="flex flex-col h-full">
+
+    <!-- Верхня панель -->
+    <div class="flex items-center justify-between px-5 pt-5 pb-4">
+      <!-- той самий логотип -->
+      <a href="#home" class="flex items-center gap-3.5">
+        <span class="relative w-[30px] h-[30px]" aria-hidden="true">
+          <span class="absolute w-3 h-3 rounded-full bg-light left-1/2 -translate-x-1/2 top-0"></span>
+          <span class="absolute w-3 h-3 rounded-full bg-light top-1/2 -translate-y-1/2 left-0"></span>
+          <span class="absolute w-3 h-3 rounded-full bg-light top-1/2 -translate-y-1/2 right-0"></span>
+          <span class="absolute w-3 h-3 rounded-full bg-light left-1/2 -translate-x-1/2 bottom-0"></span>
+        </span>
+        <span class="text-light font-bold text-[18px]">
+          Health<em class="not-italic font-normal opacity-95">Specialist</em>
+        </span>
+      </a>
+
+      <!-- кнопка закриття -->
+      <button type="button"
+        id="mobile-menu-close"
+        class="inline-flex items-center justify-center w-9 h-9 rounded-md bg-light/15 text-light hover:bg-light/25 transition"
+        aria-label="Close menu">
+        ✕
+      </button>
+    </div>
+
+    <!-- Лінки -->
+    <nav class="flex-1 px-5 pt-6 space-y-4 text-[15px] font-semibold tracking-wide">
+      <a href="#home" class="block hover:opacity-90" onclick="closeMobileMenu()">HOME</a>
+      <a href="#about" class="block hover:opacity-90" onclick="closeMobileMenu()">ABOUT</a>
+      <a href="services.html" class="block hover:opacity-90" onclick="closeMobileMenu()">SERVICES</a>
+      <a href="#doctors" class="block hover:opacity-90" onclick="closeMobileMenu()">DOCTORS</a>
+      <a href="#contact" class="block hover:opacity-90" onclick="closeMobileMenu()">CONTACT</a>
+    </nav>
+
+    <!-- Кнопки внизу -->
+    <div class="px-5 pb-6 flex gap-3">
+      <button
+        class="flex-1 inline-flex items-center justify-center h-11 rounded-md bg-light text-blue font-extrabold text-[14px] hover:bg-white transition">
+        SIGN UP
+      </button>
+      <button
+        class="flex-1 inline-flex items-center justify-center h-11 rounded-md border border-light text-light font-extrabold text-[14px] hover:bg-light/10 transition">
+        LOG IN
+      </button>
+    </div>
+  </div>
+</div>
+
 
     <!-- ===== HERO ===== -->
-    <section id="home" class="mt-7 bg-white rounded-2xl shadow-soft px-5 sm:px-9 lg:px-12 py-10 lg:py-12">
-      <div class="grid lg:grid-cols-[1.05fr,0.95fr] items-center gap-10 lg:gap-12">
+    <section id="home" class="mt-6 sm:mt-7 bg-white rounded-2xl shadow-soft px-4 sm:px-6 lg:px-12 py-7 sm:py-9 lg:py-12">
+      <div class="grid lg:grid-cols-[1.05fr,0.95fr] items-center gap-8 sm:gap-10 lg:gap-12">
         
-        <div class="hero-content max-w-[640px] -ml-1 sm:-ml-2 lg:-ml-3">
-          <h1 class="text-grey font-bold leading-[1.52] text-[31px] sm:text-[34px] lg:text-[38px] mb-5">
-            Dedicated Health<br>Care Specialists
+        <div class="hero-content max-w-[640px] mx-auto lg:mx-0 lg:-ml-3 text-center lg:text-left">
+          <h1 class="text-grey font-bold leading-[1.4] text-[26px] sm:text-[30px] lg:text-[38px] mb-4 sm:mb-5">
+            Dedicated Health<br class="hidden sm:block">Care Specialists
           </h1>
 
-          <p class="text-[15.5px] sm:text-[16px] leading-[1.8] text-muted max-w-[60ch] mb-6">
+          <p class="text-[14px] sm:text-[15.5px] leading-[1.8] text-muted max-w-[60ch] mx-auto lg:mx-0 mb-4 sm:mb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.
           </p>
 
-          <p class="hidden-text hidden text-[15.5px] sm:text-[16px] leading-[1.8] text-muted max-w-[60ch] mb-6">
+          <p class="hidden-text hidden text-[14px] sm:text-[15.5px] leading-[1.8] text-muted max-w-[60ch] mx-auto lg:mx-0 mb-4 sm:mb-6">
             Vestibulum viverra aliquet turpis, non vehicula purus condimentum eu. Curabitur nec risus
             at justo congue tincidunt. Quisque posuere arcu a nibh interdum, nec convallis magna feugiat.
           </p>
 
           <button type="button"
             class="learn-more-btn inline-flex items-center justify-center rounded-md bg-blue text-white font-bold
-                   text-[14px] px-6 py-2.5 hover:bg-blueDark transition mt-2">
+                   text-[13px] sm:text-[14px] px-5 sm:px-6 py-2.5 hover:bg-blueDark transition mt-1 sm:mt-2">
             LEARN MORE
           </button>
         </div>
 
-        <div aria-hidden="true" class="flex justify-center lg:justify-end">
+        <div aria-hidden="true" class="mt-6 lg:mt-0 flex justify-center lg:justify-end">
           <img src="img/ambulance.png" alt="Ambulance"
-               class="w-full max-w-[430px] lg:max-w-[460px] object-contain">
+               class="w-full max-w-[260px] sm:max-w-[360px] lg:max-w-[460px] object-contain">
         </div>
       </div>
     </section>
 
-    <!-- ===== 3 КАРТКИ (чуть довші + більше внутрішніх відступів) ===== -->
-    <section class="mt-10">
+    <!-- ===== 3 КАРТКИ ===== -->
+    <section class="mt-8 sm:mt-10">
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
                [grid-auto-flow:row] [grid-auto-columns:auto]
-               gap-6 lg:gap-8 w-full">
+               gap-5 sm:gap-6 lg:gap-8 w-full">
 
         <!-- 1 -->
         <article
           class="min-w-0 w-full bg-[#F6F9FE] rounded-[10px]
                  shadow-[0_8px_24px_rgba(19,33,68,.05)]
-                 px-12 py-12 lg:px-14 lg:py-14 min-h-[360px]
+                 px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-14 min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]
                  flex flex-col items-center justify-between text-center
                  transition-all duration-300
                  hover:-translate-y-[4px]
                  hover:shadow-[0_16px_36px_rgba(69,147,255,.13),0_10px_22px_rgba(19,33,68,.05)]
                  hover:ring-1 hover:ring-[rgba(69,147,255,.16)]">
-          <h3 class="text-[17px] font-bold text-grey uppercase tracking-[0.35px] mb-4">
+          <h3 class="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-grey uppercase tracking-[0.35px] mb-3 sm:mb-4">
             EMERGENCIES
           </h3>
-          <p class="text-[13.5px] leading-[1.75] text-grey max-w-[46ch] mx-auto mb-8">
+          <p class="text-[13px] sm:text-[13.5px] leading-[1.75] text-grey max-w-[46ch] mx-auto mb-6 sm:mb-8">
             In case of any medical emergency, our team is available to provide immediate and professional care.
             Our doctors are trained to handle a wide range of urgent conditions efficiently.
           </p>
           <button
-            class="inline-flex items-center justify-center h-[34px] px-6 rounded-md
-                   bg-blue text-white font-semibold text-[12px]">
+            class="inline-flex items-center justify-center h-[32px] sm:h-[34px] px-5 sm:px-6 rounded-md
+                   bg-blue text-white font-semibold text-[11.5px] sm:text-[12px]">
             MORE INFO
           </button>
         </article>
@@ -176,16 +245,16 @@
         <article
           class="min-w-0 w-full bg-[#F6F9FE] rounded-[10px]
                  shadow-[0_8px_24px_rgba(19,33,68,.05)]
-                 px-12 py-12 lg:px-14 lg:py-14 min-h-[360px]
+                 px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-14 min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]
                  flex flex-col items-center justify-between text-center
                  transition-all duration-300
                  hover:-translate-y-[4px]
                  hover:shadow-[0_16px_36px_rgba(69,147,255,.13),0_10px_22px_rgba(19,33,68,.05)]
                  hover:ring-1 hover:ring-[rgba(69,147,255,.16)]">
-          <h3 class="text-[17px] font-bold text-grey uppercase tracking-[0.35px] mb-4">
+          <h3 class="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-grey uppercase tracking-[0.35px] mb-3 sm:mb-4">
             OPERATING HOURS
           </h3>
-          <div class="w-full max-w-[300px] text-grey text-[12.5px] font-medium mx-auto leading-[1.7] mb-7">
+          <div class="w-full max-w-[300px] text-grey text-[11.5px] sm:text-[12.5px] font-medium mx-auto leading-[1.7] mb-6 sm:mb-7">
             <div class="flex items-center justify-between py-1">
               <span>MONDAY – FRIDAY</span><span>08:00 - 18:00</span>
             </div>
@@ -198,8 +267,8 @@
             </div>
           </div>
           <button
-            class="inline-flex items-center justify-center h-[34px] px-6 rounded-md
-                   bg-blue text-white font-semibold text-[12px]">
+            class="inline-flex items-center justify-center h-[32px] sm:h-[34px] px-5 sm:px-6 rounded-md
+                   bg-blue text-white font-semibold text-[11.5px] sm:text-[12px]">
             MAKE AN APPOINTMENT
           </button>
         </article>
@@ -208,22 +277,22 @@
         <article
           class="min-w-0 w-full bg-[#F6F9FE] rounded-[10px]
                  shadow-[0_8px_24px_rgba(19,33,68,.05)]
-                 px-12 py-12 lg:px-14 lg:py-14 min-h-[360px]
+                 px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-14 min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]
                  flex flex-col items-center justify-between text-center
                  transition-all duration-300
                  hover:-translate-y-[4px]
                  hover:shadow-[0_16px_36px_rgba(69,147,255,.13),0_10px_22px_rgba(19,33,68,.05)]
                  hover:ring-1 hover:ring-[rgba(69,147,255,.16)]">
-          <h3 class="text-[17px] font-bold text-grey uppercase tracking-[0.35px] mb-4">
+          <h3 class="text-[15px] sm:text-[16px] lg:text-[17px] font-bold text-grey uppercase tracking-[0.35px] mb-3 sm:mb-4">
             TEST RESULTS
           </h3>
-          <p class="text-[13.5px] leading-[1.75] text-grey max-w-[46ch] mx-auto mb-8">
+          <p class="text-[13px] sm:text-[13.5px] leading-[1.75] text-grey max-w-[46ch] mx-auto mb-6 sm:mb-8">
             Access your laboratory and diagnostic test results quickly and securely through our online portal.
             We guarantee accuracy and confidentiality in every step of the process.
           </p>
           <button
-            class="inline-flex items-center justify-center h-[34px] px-6 rounded-md
-                   bg-blue text-white font-semibold text-[12px]">
+            class="inline-flex items-center justify-center h-[32px] sm:h-[34px] px-5 sm:px-6 rounded-md
+                   bg-blue text-white font-semibold text-[11.5px] sm:text-[12px]">
             CHECK TEST
           </button>
         </article>
@@ -231,19 +300,20 @@
       </div>
     </section>
 
-<!-- ===== DOCTORS ===== -->
+    <!-- ===== DOCTORS ===== -->
 <section id="doctors" class="mt-14">
   <h2 class="text-[40px] font-bold text-grey mb-6">Doctors</h2>
 
-  <div class="grid auto-cols-max grid-flow-col gap-8 md:gap-10 overflow-x-auto no-scrollbar pb-1">
+  <!-- КОНТЕЙНЕР: flex + скрол, БЕЗ grid -->
+  <div class="flex gap-8 md:gap-10 overflow-x-auto no-scrollbar pb-1">
 
-    <!-- CARD -->
+    <!-- 1 -->
     <article class="relative w-[420px] bg-white/20 backdrop-blur-sm rounded-2xl 
                    border border-[rgba(19,33,68,.08)] px-10 py-9 
                    flex items-center gap-6 shrink-0">
       
       <div class="w-[120px] h-[120px] rounded-full overflow-hidden bg-white border border-[rgba(19,33,68,.08)]">
-        <img src="img/doctor1.png" class="w-full h-full object-cover object-top">
+        <img src="img/doctor1.png" class="w-full h-full object-cover object-top" alt="Doctor 1">
       </div>
 
       <div class="flex flex-col items-center gap-3 flex-1">
@@ -264,7 +334,7 @@
                    flex items-center gap-6 shrink-0">
       
       <div class="w-[120px] h-[120px] rounded-full overflow-hidden bg-white border border-[rgba(19,33,68,.08)]">
-        <img src="img/doctor2.png" class="w-full h-full object-cover object-top">
+        <img src="img/doctor2.png" class="w-full h-full object-cover object-top" alt="Doctor 2">
       </div>
 
       <div class="flex flex-col items-center gap-3 flex-1">
@@ -285,7 +355,7 @@
                    flex items-center gap-6 shrink-0">
       
       <div class="w-[120px] h-[120px] rounded-full overflow-hidden bg-white border border-[rgba(19,33,68,.08)]">
-        <img src="img/doctor3.png" class="w-full h-full object-cover object-top">
+        <img src="img/doctor3.png" class="w-full h-full object-cover object-top" alt="Doctor 3">
       </div>
 
       <div class="flex flex-col items-center gap-3 flex-1">
@@ -306,7 +376,7 @@
                    flex items-center gap-6 shrink-0">
       
       <div class="w-[120px] h-[120px] rounded-full overflow-hidden bg-white border border-[rgba(19,33,68,.08)]">
-        <img src="img/doctor4.png" class="w-full h-full object-cover object-top">
+        <img src="img/doctor4.png" class="w-full h-full object-cover object-top" alt="Doctor 4">
       </div>
 
       <div class="flex flex-col items-center gap-3 flex-1">
@@ -324,58 +394,62 @@
   </div>
 </section>
 
+
     <!-- ===== FOOTER ===== -->
-    <footer id="contact" class="py-12 px-4 mt-12">
+    <footer id="contact" class="py-10 sm:py-12 px-2 sm:px-4 mt-10 sm:mt-12">
       <h2 class="sr-only">Footer</h2>
-      <div class="max-w-wrap mx-auto grid gap-10 md:grid-cols-4 items-start">
+      <div class="max-w-wrap mx-auto grid gap-8 sm:gap-10 md:grid-cols-4 items-start">
         <!-- Logo -->
-        <a href="#home" class="inline-flex items-center gap-3.5">
-          <span class="relative w-[34px] h-[34px]" aria-hidden="true">
+        <a href="#home" class="inline-flex items-center gap-3.5 mb-2 md:mb-0">
+          <span class="relative w-[30px] h-[30px] sm:w-[34px] sm:h-[34px]" aria-hidden="true">
             <span class="absolute w-3 h-3 rounded-full bg-blue left-1/2 -translate-x-1/2 top-0"></span>
             <span class="absolute w-3 h-3 rounded-full bg-blue top-1/2 -translate-y-1/2 left-0"></span>
             <span class="absolute w-3 h-3 rounded-full bg-blue top-1/2 -translate-y-1/2 right-0"></span>
             <span class="absolute w-3 h-3 rounded-full bg-blue left-1/2 -translate-x-1/2 bottom-0"></span>
           </span>
-          <span class="text-blue font-bold text-[19px]">Health<em class="not-italic font-normal">Specialist</em></span>
+          <span class="text-blue font-bold text-[17px] sm:text-[19px]">
+            Health<em class="not-italic font-normal">Specialist</em>
+          </span>
         </a>
 
-<div>
-  <h4 class="mb-3 text-[11px] font-extrabold tracking-wide uppercase text-grey">Services</h4>
-  <ul class="space-y-2 text-[11px] text-grey">
-    <li><a href="services.html" class="hover:opacity-90">Family Medicine</a></li>
-    <li><a href="services.html" class="hover:opacity-90">Internal Medicine</a></li>
-    <li><a href="services.html" class="hover:opacity-90">Cardiology</a></li>
-    <li><a href="services.html" class="hover:opacity-90">Physical Therapy</a></li>
-  </ul>
-</div>
+        <div>
+          <h4 class="mb-3 text-[11px] font-extrabold tracking-wide uppercase text-grey">Services</h4>
+          <ul class="space-y-2 text-[11px] text-grey">
+            <li><a href="services.html" class="hover:opacity-90">Family Medicine</a></li>
+            <li><a href="services.html" class="hover:opacity-90">Internal Medicine</a></li>
+            <li><a href="services.html" class="hover:opacity-90">Cardiology</a></li>
+            <li><a href="services.html" class="hover:opacity-90">Physical Therapy</a></li>
+          </ul>
+        </div>
 
-<div>
-  <h4 class="mb-3 text-[11px] font-extrabold tracking-wide uppercase text-grey">Doctors</h4>
-  <ul class="space-y-2 text-[11px] text-grey">
-    <li><a href="#doctor-1" class="hover:opacity-90">Phillis K Vance MD</a></li>
-    <li><a href="#doctor-2" class="hover:opacity-90">Stanley K Hudson MD</a></li>
-    <li><a href="#doctor-3" class="hover:opacity-90">Kevin D Malone MD</a></li>
-    <li><a href="#doctor-4" class="hover:opacity-90">Angela S Martin MD</a></li>
-  </ul>
-</div>
+        <div>
+          <h4 class="mb-3 text-[11px] font-extrabold tracking-wide uppercase text-grey">Doctors</h4>
+          <ul class="space-y-2 text-[11px] text-grey">
+            <li><a id="doctor-1" href="#doctor-1" class="hover:opacity-90">Phillis K Vance MD</a></li>
+            <li><a id="doctor-2" href="#doctor-2" class="hover:opacity-90">Stanley K Hudson MD</a></li>
+            <li><a id="doctor-3" href="#doctor-3" class="hover:opacity-90">Kevin D Malone MD</a></li>
+            <li><a id="doctor-4" href="#doctor-4" class="hover:opacity-90">Angela S Martin MD</a></li>
+          </ul>
+        </div>
 
+        <div>
+          <h4 class="mb-3 text-[13px] font-extrabold tracking-wide uppercase text-grey">Contact</h4>
 
-       <div>
-  <h4 class="mb-3 text-[13px] font-extrabold tracking-wide uppercase text-grey">Contact</h4>
+          <a href="tel:+14041234567"
+             class="inline-flex items-center justify-center h-12 sm:h-14 px-6 sm:px-7 rounded-xl
+                    bg-[#4593FF] text-white font-extrabold text-[14px] sm:text-[15px]
+                    hover:bg-[#3377E5] transition">
 
-  <a href="tel:+14041234567"
-     class="inline-flex items-center justify-center h-14 px-7 rounded-xl
-            bg-[#4593FF] text-white font-extrabold text-[15px]
-            hover:bg-[#3377E5] transition">
+            <span class="mr-3 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]">
+              <img src="img/phone.png" alt="" class="w-full h-full object-contain invert brightness-0">
+            </span>
 
-    <span class="mr-3 w-[22px] h-[22px]">
-      <img src="img/phone.png" alt="" class="w-full h-full object-contain invert brightness-0">
-    </span>
-
-    (404)123 - 4567
-  </a>
-</div>
-
+            (404)123 - 4567
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <!-- ===== JS ===== -->
   <script>
@@ -407,6 +481,41 @@
         btn.textContent = p2.classList.contains("hidden") ? "LEARN MORE" : "SHOW LESS";
       });
     });
+
+    // ===== MOBILE MENU =====
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu   = document.getElementById('mobile-menu');
+  const mobileClose  = document.getElementById('mobile-menu-close');
+
+  function openMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', openMobileMenu);
+  }
+  if (mobileClose) {
+    mobileClose.addEventListener('click', closeMobileMenu);
+  }
+
+  // Закрити по Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+
+  //  функція доступна для onClick в <a>
+  window.closeMobileMenu = closeMobileMenu;
+
   </script>
 </body>
 </html>
